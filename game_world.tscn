@@ -1,50 +1,37 @@
-[gd_scene load_steps=8 format=3 uid="uid://dp6ga78d6fhpn"]
+[gd_scene load_steps=5 format=3 uid="uid://dp6ga78d6fhpn"]
 
-[ext_resource type="Shader" path="res://SkyShader.gdshader" id="2_eieni"]
 [ext_resource type="PackedScene" uid="uid://bixrskqe0dihu" path="res://player.tscn" id="2_uprq6"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_labfj"]
-size = Vector3(10, 1, 10)
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_1x3ls"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
 
-[sub_resource type="BoxMesh" id="BoxMesh_vq7nw"]
-size = Vector3(10, 1, 10)
+[sub_resource type="Sky" id="Sky_pm0rh"]
+sky_material = SubResource("ProceduralSkyMaterial_1x3ls")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_njfsc"]
-shader = ExtResource("2_eieni")
-shader_parameter/skyColor = Color(0.360784, 0.721569, 0.831373, 1)
-shader_parameter/horizonColor = null
-shader_parameter/horizonBlend = 0.05
-shader_parameter/horizonLevel = 0.0
-
-[sub_resource type="Sky" id="Sky_o5egc"]
-sky_material = SubResource("ShaderMaterial_njfsc")
-
-[sub_resource type="Environment" id="Environment_3xxie"]
+[sub_resource type="Environment" id="Environment_1fmom"]
 background_mode = 2
-sky = SubResource("Sky_o5egc")
-ambient_light_source = 3
-reflected_light_source = 2
+sky = SubResource("Sky_pm0rh")
+tonemap_mode = 2
+glow_enabled = true
 
 [node name="game_world" type="Node3D"]
 
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_1fmom")
+
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.838528, 0, 0.544859, -0.523145, 0.279494, 0.80511, -0.152285, -0.960147, 0.234363, 0, 0, 0)
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+shadow_enabled = true
 
 [node name="player" parent="." instance=ExtResource("2_uprq6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
 
-[node name="StaticBody3D" type="StaticBody3D" parent="."]
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="."]
+use_collision = true
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
-transform = Transform3D(1.00189, 0, 0, 0, 1.00189, 0, 0, 0, 1.00189, 0, 0, 0)
-shape = SubResource("BoxShape3D_labfj")
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D"]
+size = Vector3(16, 1, 16)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
-transform = Transform3D(1.02975, 0, 0, 0, 1.02975, 0, 0, 0, 1.02975, 0, 0, 0)
-mesh = SubResource("BoxMesh_vq7nw")
-
-[node name="CSGBox3D" type="CSGBox3D" parent="."]
+[node name="CSGBox3D2" type="CSGBox3D" parent="CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.39915, -6.68109)
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_3xxie")
