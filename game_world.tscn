@@ -1,7 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://dp6ga78d6fhpn"]
+[gd_scene load_steps=12 format=3 uid="uid://dp6ga78d6fhpn"]
 
 [ext_resource type="PackedScene" uid="uid://bvb0sxyd4v088" path="res://ui/ui.tscn" id="1_o7x6f"]
 [ext_resource type="PackedScene" uid="uid://bixrskqe0dihu" path="res://player.tscn" id="2_uprq6"]
+[ext_resource type="Material" uid="uid://cku41hehunf0r" path="res://materials/grass.tres" id="3_72q5e"]
+[ext_resource type="Script" path="res://Label3Dtest.gd" id="4_geors"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_1x3ls"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -16,6 +18,16 @@ sky = SubResource("Sky_pm0rh")
 tonemap_mode = 2
 glow_enabled = true
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_qkwtj"]
+size = Vector3(20, 1, 20)
+
+[sub_resource type="BoxMesh" id="BoxMesh_8dgdk"]
+material = ExtResource("3_72q5e")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0klip"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_tutrs"]
+
 [node name="game_world" type="Node3D"]
 
 [node name="Ui" parent="." instance=ExtResource("1_o7x6f")]
@@ -24,17 +36,33 @@ glow_enabled = true
 environment = SubResource("Environment_1fmom")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+transform = Transform3D(0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, -0.75, 0.433013, 0, 0, 0)
 shadow_enabled = true
 
 [node name="player" parent="." instance=ExtResource("2_uprq6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
 
-[node name="CSGCombiner3D" type="CSGCombiner3D" parent="."]
-use_collision = true
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
 
-[node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D"]
-size = Vector3(16, 1, 16)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("BoxShape3D_qkwtj")
 
-[node name="CSGBox3D2" type="CSGBox3D" parent="CSGCombiner3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.39915, -4.68109)
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+transform = Transform3D(20.1031, 0, 0, 0, 1.00516, 0, 0, 0, 20.1031, 0, 0, 0)
+mesh = SubResource("BoxMesh_8dgdk")
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="." groups=["Interactable"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -6)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D2"]
+shape = SubResource("BoxShape3D_0klip")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D2"]
+mesh = SubResource("BoxMesh_tutrs")
+skeleton = NodePath("../../StaticBody3D2")
+
+[node name="Label3D" type="Label3D" parent="StaticBody3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+visible = false
+text = "Press E to interact"
+script = ExtResource("4_geors")

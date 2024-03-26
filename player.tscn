@@ -1,10 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://bixrskqe0dihu"]
+[gd_scene load_steps=5 format=3 uid="uid://bixrskqe0dihu"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_tyv5o"]
+[ext_resource type="Script" path="res://Crosshair.gd" id="2_b1r53"]
+[ext_resource type="Script" path="res://Interact.gd" id="2_gvb4d"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_plj66"]
-
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_xcxnk"]
 
 [node name="player" type="CharacterBody3D"]
 script = ExtResource("1_tyv5o")
@@ -16,5 +16,27 @@ shape = SubResource("CapsuleShape3D_plj66")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 fov = 90.0
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-mesh = SubResource("CapsuleMesh_xcxnk")
+[node name="RayCast3D" type="RayCast3D" parent="player_camera"]
+target_position = Vector3(0, 0, -5)
+hit_back_faces = false
+script = ExtResource("2_gvb4d")
+
+[node name="CrosshairControl" type="Control" parent="player_camera/RayCast3D"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="player_camera/RayCast3D/CrosshairControl"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_b1r53")
+DOT_RADIUS = 4.0
