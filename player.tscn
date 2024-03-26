@@ -6,22 +6,22 @@
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_plj66"]
 
-[node name="player" type="CharacterBody3D"]
+[node name="Player" type="CharacterBody3D"]
 script = ExtResource("1_tyv5o")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_plj66")
 
-[node name="player_camera" type="Camera3D" parent="."]
+[node name="PlayerCamera" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 fov = 90.0
 
-[node name="RayCast3D" type="RayCast3D" parent="player_camera"]
+[node name="PlayerPointer" type="RayCast3D" parent="PlayerCamera"]
 target_position = Vector3(0, 0, -5)
 hit_back_faces = false
 script = ExtResource("2_gvb4d")
 
-[node name="CrosshairControl" type="Control" parent="player_camera/RayCast3D"]
+[node name="CrosshairControl" type="Control" parent="PlayerCamera/PlayerPointer"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -29,7 +29,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="CenterContainer" type="CenterContainer" parent="player_camera/RayCast3D/CrosshairControl"]
+[node name="CenterContainer" type="CenterContainer" parent="PlayerCamera/PlayerPointer/CrosshairControl"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5

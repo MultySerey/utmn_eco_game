@@ -7,7 +7,7 @@ extends CharacterBody3D
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
-@onready var _camera = $player_camera
+@onready var _camera = $PlayerCamera
 var mouse_lock: bool
 
 

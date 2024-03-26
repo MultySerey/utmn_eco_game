@@ -39,7 +39,7 @@ environment = SubResource("Environment_1fmom")
 transform = Transform3D(0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, -0.75, 0.433013, 0, 0, 0)
 shadow_enabled = true
 
-[node name="player" parent="." instance=ExtResource("2_uprq6")]
+[node name="Player" parent="." instance=ExtResource("2_uprq6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
@@ -63,6 +63,5 @@ skeleton = NodePath("../../StaticBody3D2")
 
 [node name="Label3D" type="Label3D" parent="StaticBody3D2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-visible = false
 text = "Press E to interact"
 script = ExtResource("4_geors")
