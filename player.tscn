@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://bixrskqe0dihu"]
 
-[ext_resource type="Script" path="res://player.gd" id="1_tyv5o"]
-[ext_resource type="Script" path="res://Crosshair.gd" id="2_b1r53"]
-[ext_resource type="Script" path="res://Interact.gd" id="2_gvb4d"]
+[ext_resource type="Script" path="res://scripts/player.gd" id="1_tyv5o"]
+[ext_resource type="Script" path="res://scripts/Crosshair.gd" id="2_b1r53"]
+[ext_resource type="Script" path="res://scripts/Interact.gd" id="2_gvb4d"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_plj66"]
 

@@ -2,11 +2,11 @@
 
 [ext_resource type="PackedScene" uid="uid://bvb0sxyd4v088" path="res://ui/ui.tscn" id="1_o7x6f"]
 [ext_resource type="PackedScene" uid="uid://bixrskqe0dihu" path="res://player.tscn" id="2_uprq6"]
-[ext_resource type="Script" path="res://TestCube.gd" id="4_88840"]
+[ext_resource type="Script" path="res://scripts/TestCube.gd" id="4_88840"]
 [ext_resource type="PackedScene" uid="uid://dcg388ehmfvbp" path="res://models/WinterVillage.blend" id="6_04ktl"]
-[ext_resource type="Script" path="res://CharFox.gd" id="6_xm4hx"]
+[ext_resource type="Script" path="res://scripts/CharFox.gd" id="6_xm4hx"]
 [ext_resource type="ArrayMesh" uid="uid://dtjxtmot84jy2" path="res://models/Fox.obj" id="7_3jyrr"]
-[ext_resource type="Script" path="res://CharDuck.gd" id="8_bwoup"]
+[ext_resource type="Script" path="res://scripts/CharDuck.gd" id="8_bwoup"]
 [ext_resource type="ArrayMesh" uid="uid://ckcyqo52canrg" path="res://models/duck.obj" id="8_ynema"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_1x3ls"]
