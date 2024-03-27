@@ -8,5 +8,4 @@ func _process(delta):
 
 	if self.is_colliding() and coll.is_in_group("Interactable"):
 		if Input.is_action_just_pressed("interact"):
-			print("cool ", c)
-			c += 1
+			coll.interact()
