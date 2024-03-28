@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://dgnkkoiqsjiqb"
+path="res://.godot/imported/WinterVillage.obj-afd76f77011ea432ac6df5f7154845fb.mesh"
+
+[deps]
+
+files=["res://.godot/imported/WinterVillage.obj-afd76f77011ea432ac6df5f7154845fb.mesh"]
+
+source_file="res://models/obj/WinterVillage.obj"
+dest_files=["res://.godot/imported/WinterVillage.obj-afd76f77011ea432ac6df5f7154845fb.mesh", "res://.godot/imported/WinterVillage.obj-afd76f77011ea432ac6df5f7154845fb.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false
