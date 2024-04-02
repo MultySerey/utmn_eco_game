@@ -1,7 +1,7 @@
 [gd_scene load_steps=21 format=3 uid="uid://dp6ga78d6fhpn"]
 
-[ext_resource type="PackedScene" uid="uid://bvb0sxyd4v088" path="res://ui/ui.tscn" id="1_o7x6f"]
-[ext_resource type="PackedScene" uid="uid://bixrskqe0dihu" path="res://player.tscn" id="2_uprq6"]
+[ext_resource type="PackedScene" uid="uid://bvb0sxyd4v088" path="res://scenes/ui/HUD.tscn" id="1_o7x6f"]
+[ext_resource type="PackedScene" uid="uid://bixrskqe0dihu" path="res://scenes/player.tscn" id="2_uprq6"]
 [ext_resource type="ArrayMesh" uid="uid://dgnkkoiqsjiqb" path="res://models/obj/WinterVillage.obj" id="3_eqaf0"]
 [ext_resource type="Script" path="res://scripts/TestCube.gd" id="4_88840"]
 [ext_resource type="ArrayMesh" uid="uid://dtjxtmot84jy2" path="res://models/obj/Fox.obj" id="6_l7fw1"]

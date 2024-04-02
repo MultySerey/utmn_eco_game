@@ -1,0 +1,7 @@
+[gd_resource type="Theme" format=3 uid="uid://csqfbqswfqvtf"]
+
+[resource]
+Button/font_sizes/font_size = 64
+Label/font_sizes/font_size = 64
+MarginContainer/constants/margin_bottom = 128
+MarginContainer/constants/margin_top = 128
