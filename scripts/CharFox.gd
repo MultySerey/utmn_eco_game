@@ -7,10 +7,17 @@ var timeline: DialogicTimeline = DialogicTimeline.new()
 func _ready():
 	var events: Array = """
 	join fox 1
-	fox (fox): Теперь я могу брать текст из кода!
-	- Круто!
+	fox (fox): Как называется тип потребительского поведения, предполагаемый целями устойчивого развития?
+	- Рациональный
+	- Ответственный
+		set {player_score} += 1
+	- Разумный
+	if {player_score} == 1:
+		fox (fox): Правильно
+	else:
+		fox (fox): Не правильно
 	fox (fox): Пока.
-		
+	[end_timeline]
 	""".split('\n')
 	timeline.events= events
 	timeline.events_processed=true

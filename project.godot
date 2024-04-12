@@ -27,7 +27,9 @@ directories/dch_directory={
 directories/dtl_directory={
 "test_timeline": "res://dialogic/timelines/test_timeline.dtl"
 }
-variables={}
+variables={
+"player_score": 0
+}
 layout/style_list=[]
 layout/default_style="res://dialogic/styles/default_style.tres"
 glossary/default_case_sensitive=true
@@ -47,7 +49,7 @@ choices/reveal_by_input=false
 save/autosave_delay=60.0
 save/encryption_on_exports_only=true
 text/autopauses={}
-text/input_action="interact"
+text/input_action="ui_accept"
 
 [display]
 
