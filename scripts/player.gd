@@ -8,12 +8,10 @@ extends CharacterBody3D
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 @onready var _camera = $PlayerCamera
-var mouse_lock: bool
 
 
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-	mouse_lock=true
 
 
 func _input(event: InputEvent) -> void:
@@ -21,15 +19,6 @@ func _input(event: InputEvent) -> void:
 		_camera.rotate_x(deg_to_rad(-event.relative.y * mouse_sensetivity))
 		rotate_y(deg_to_rad(-event.relative.x * mouse_sensetivity))
 		_camera.rotation_degrees.x = clamp(_camera.rotation_degrees.x, -89.9, 89.9)
-	
-	
-	if Input.is_action_just_pressed("escape"):
-		if mouse_lock:
-			Input.mouse_mode=Input.MOUSE_MODE_VISIBLE
-			mouse_lock=false
-		else:
-			Input.mouse_mode=Input.MOUSE_MODE_CAPTURED
-			mouse_lock=true
 
 
 func _physics_process(delta):

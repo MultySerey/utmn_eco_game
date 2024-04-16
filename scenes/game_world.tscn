@@ -1,12 +1,14 @@
-[gd_scene load_steps=18 format=3 uid="uid://dp6ga78d6fhpn"]
+[gd_scene load_steps=20 format=3 uid="uid://dp6ga78d6fhpn"]
 
 [ext_resource type="PackedScene" uid="uid://bvb0sxyd4v088" path="res://scenes/ui/HUD.tscn" id="1_o7x6f"]
+[ext_resource type="Script" path="res://scripts/game_world.gd" id="1_o725f"]
 [ext_resource type="PackedScene" uid="uid://bixrskqe0dihu" path="res://scenes/player.tscn" id="2_uprq6"]
 [ext_resource type="ArrayMesh" uid="uid://dgnkkoiqsjiqb" path="res://models/obj/WinterVillage.obj" id="3_eqaf0"]
 [ext_resource type="ArrayMesh" uid="uid://dtjxtmot84jy2" path="res://models/obj/Fox.obj" id="6_l7fw1"]
 [ext_resource type="Script" path="res://scripts/CharFox.gd" id="6_xm4hx"]
 [ext_resource type="ArrayMesh" uid="uid://ckcyqo52canrg" path="res://models/obj/duck.obj" id="8_bv5sh"]
 [ext_resource type="Script" path="res://scripts/CharDuck.gd" id="8_bwoup"]
+[ext_resource type="PackedScene" uid="uid://cbryl2hjm1six" path="res://scenes/ui/pause_menu.tscn" id="9_0j2gh"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_1x3ls"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -43,6 +45,9 @@ points = PackedVector3Array(-0.846974, 0.514667, -0.0307778, 0.304154, 1.50672, 
 points = PackedVector3Array(0.147472, 2.97467, 0.777342, -0.181204, 1.65785, -0.480819, 0.202142, 1.6637, -0.479081, -0.0678242, 3.12178, -0.678927, -0.949353, 2.20841, 0.177639, 0.970302, 2.26354, 0.177233, 0.148448, 1.76676, 0.509006, 0.158822, 1.93485, -1.33269, -0.0148899, 3.63948, 0.107823, 0.734583, 3.02259, -0.205325, -0.491983, 1.99422, -1.15512, -0.712998, 3.07662, -0.09866, -0.454752, 2.64731, 0.780215, 0.518431, 2.80802, -0.846512, 0.573026, 1.99422, -1.03674, 0.315672, 2.3701, 0.846237, 0.627347, 3.0226, 0.437644, -0.346024, 1.87802, 0.562661, -0.497493, 2.80831, -0.847968, 0.751256, 1.87945, -0.0420179, -0.510778, 1.71315, -0.096709, -0.659298, 3.02279, 0.384136, 0.204895, 1.70475, -1.14863, -0.826789, 2.64768, -0.367746, -0.458816, 1.76261, -0.980166, 0.305985, 3.55944, 0.115957, 0.853269, 2.59302, -0.314395, 0.0938857, 1.65058, 0.291608, -0.0675299, 3.48762, -0.257238, -0.28636, 3.07996, 0.6593, -0.292852, 2.14971, 0.788351, -0.894034, 2.04394, -0.0968452)
 
 [node name="game_world" type="Node3D"]
+script = ExtResource("1_o725f")
+
+[node name="PauseMenu" parent="." instance=ExtResource("9_0j2gh")]
 
 [node name="Ui" parent="." instance=ExtResource("1_o7x6f")]
 
