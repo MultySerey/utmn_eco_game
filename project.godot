@@ -107,3 +107,4 @@ dialogic_default_action={
 
 renderer/rendering_method="gl_compatibility"
 anti_aliasing/quality/msaa_2d=1
+occlusion_culling/use_occlusion_culling=true
